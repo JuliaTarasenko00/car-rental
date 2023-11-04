@@ -6,7 +6,7 @@ import {
   getDetailsCar,
 } from '../../redux/cars/operation';
 import { CatalogList } from '../../components/CatalogList/CatalogList';
-import { Button, CarNotFound } from './Catalog.styled';
+import { Button } from './Catalog.styled';
 import { ModalComponent } from '../../components/Modal/Modal';
 import { DetailsCar } from '../../components/DetailsCar/DetailsCar';
 import {
@@ -25,25 +25,31 @@ const Catalog = () => {
   const number = useSelector(everythingCar);
   const carFilter = useSelector(filterCar);
   const [page, setPage] = useState(1);
-  const isLoading = useSelector(state => state.cars.isLoading);
-  const filter = useFilterCar(detailsCars);
   const { modalOpen, openModal, closeModal } = useModal();
+
+  const filter = useFilterCar(detailsCars);
 
   const render = useMemo(
     () => (carFilter.length !== 0 ? filter : cars),
     [carFilter, filter, cars]
   );
 
-  const handelClick = useCallback(() => {
-    setPage(prevPage => prevPage + 1);
-  }, []);
-
   useEffect(() => {
-    if (cars.length === 0 || page >= 2) {
+    if (cars.length === 0) {
       dispatch(getCarsRental(page));
-      dispatch(getCarsEverything());
     }
   }, [cars, dispatch, page]);
+
+  const handelClick = () => {
+    setPage(page + 1);
+    dispatch(getCarsEverything());
+  };
+
+  useEffect(() => {
+    if (page >= 2) {
+      dispatch(getCarsRental(page));
+    }
+  }, [page, dispatch]);
 
   const onClickModal = useCallback(
     id => {
@@ -55,10 +61,7 @@ const Catalog = () => {
 
   return (
     <>
-      <Filter />
-      {filter.length === 0 && !isLoading && (
-        <CarNotFound>Oops car not found 🫥</CarNotFound>
-      )}
+      <Filter filter={filter} />
       {cars.length !== 0 && (
         <>
           <CatalogList openModal={onClickModal} cars={render} />

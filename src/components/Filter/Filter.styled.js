@@ -56,3 +56,7 @@ export const ButtonBack = styled.button`
   color: #3470ff;
   margin-bottom: 10px;
 `;
+
+export const CarNotFound = styled.p`
+  font-size: 34px;
+`;

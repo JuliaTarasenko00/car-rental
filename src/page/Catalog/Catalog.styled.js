@@ -19,7 +19,3 @@ export const Button = styled.button`
     color: #0b44cd;
   }
 `;
-
-export const CarNotFound = styled.p`
-  font-size: 34px;
-`;

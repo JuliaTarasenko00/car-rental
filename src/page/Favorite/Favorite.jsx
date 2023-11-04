@@ -8,7 +8,6 @@ import { DetailsCar } from '../../components/DetailsCar/DetailsCar';
 import { Filter } from '../../components/Filter/Filter';
 import { useNavigate } from 'react-router-dom';
 import { Button, Title, Wrapper } from './Favorite.styled';
-import { CarNotFound } from '../Catalog/Catalog.styled';
 import { useFilterCar } from '../../helpers/hooks/useFilterCar';
 import { useModal } from '../../helpers/hooks/useModal';
 
@@ -16,7 +15,6 @@ const Favorite = () => {
   const favorite = useSelector(favoriteCar);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isLoading = useSelector(state => state.cars.isLoading);
   const filter = useFilterCar(favoriteCar);
   const { modalOpen, openModal, closeModal } = useModal();
 
@@ -31,9 +29,6 @@ const Favorite = () => {
   return (
     <>
       <Filter />
-      {filter.length === 0 && !isLoading && favorite.length !== 0 && (
-        <CarNotFound>Oops car not found 🫥</CarNotFound>
-      )}
       {favorite.length === 0 && (
         <Wrapper>
           <Title>The list of favorite cars is still empty</Title>
