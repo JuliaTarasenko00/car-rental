@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/car-rental/static/css/main.caf92f54.css",
+    "main.js": "/car-rental/static/js/main.57d505dc.js",
+    "static/js/477.bb18008f.chunk.js": "/car-rental/static/js/477.bb18008f.chunk.js",
+    "static/js/247.f4f6a32c.chunk.js": "/car-rental/static/js/247.f4f6a32c.chunk.js",
+    "static/js/513.21eabd52.chunk.js": "/car-rental/static/js/513.21eabd52.chunk.js",
+    "static/js/808.f74957fd.chunk.js": "/car-rental/static/js/808.f74957fd.chunk.js",
+    "static/js/390.7b486d68.chunk.js": "/car-rental/static/js/390.7b486d68.chunk.js",
+    "static/js/66.be17e644.chunk.js": "/car-rental/static/js/66.be17e644.chunk.js",
+    "static/js/321.89737e89.chunk.js": "/car-rental/static/js/321.89737e89.chunk.js",
+    "static/js/71.b16383c6.chunk.js": "/car-rental/static/js/71.b16383c6.chunk.js",
+    "static/js/718.b9005c62.chunk.js": "/car-rental/static/js/718.b9005c62.chunk.js",
+    "static/media/rental_car.jpg": "/car-rental/static/media/rental_car.b9b68777481fa2b392bc.jpg",
+    "static/media/error-404.webp": "/car-rental/static/media/error-404.e94021697a68532f3484.webp",
+    "index.html": "/car-rental/index.html",
+    "main.caf92f54.css.map": "/car-rental/static/css/main.caf92f54.css.map",
+    "main.57d505dc.js.map": "/car-rental/static/js/main.57d505dc.js.map",
+    "477.bb18008f.chunk.js.map": "/car-rental/static/js/477.bb18008f.chunk.js.map",
+    "247.f4f6a32c.chunk.js.map": "/car-rental/static/js/247.f4f6a32c.chunk.js.map",
+    "513.21eabd52.chunk.js.map": "/car-rental/static/js/513.21eabd52.chunk.js.map",
+    "808.f74957fd.chunk.js.map": "/car-rental/static/js/808.f74957fd.chunk.js.map",
+    "390.7b486d68.chunk.js.map": "/car-rental/static/js/390.7b486d68.chunk.js.map",
+    "66.be17e644.chunk.js.map": "/car-rental/static/js/66.be17e644.chunk.js.map",
+    "321.89737e89.chunk.js.map": "/car-rental/static/js/321.89737e89.chunk.js.map",
+    "71.b16383c6.chunk.js.map": "/car-rental/static/js/71.b16383c6.chunk.js.map",
+    "718.b9005c62.chunk.js.map": "/car-rental/static/js/718.b9005c62.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.caf92f54.css",
+    "static/js/main.57d505dc.js"
+  ]
+}

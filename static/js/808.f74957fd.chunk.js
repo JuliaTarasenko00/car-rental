@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcar_rental=self.webpackChunkcar_rental||[]).push([[808],{4380:(a,e,t)=>{t.r(e),t.d(e,{default:()=>c});const r=t.p+"static/media/error-404.e94021697a68532f3484.webp";var s=t(184);const c=()=>(0,s.jsx)("img",{src:r,alt:"Page Not Found",loading:"lazy",width:"500",height:"500",style:{margin:"0 auto"}})}}]);
+//# sourceMappingURL=808.f74957fd.chunk.js.map
