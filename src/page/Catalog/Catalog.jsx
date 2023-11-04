@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   getCarsEverything,
   getCarsRental,
@@ -9,7 +9,12 @@ import { CatalogList } from '../../components/CatalogList/CatalogList';
 import { Button, CarNotFound } from './Catalog.styled';
 import { ModalComponent } from '../../components/Modal/Modal';
 import { DetailsCar } from '../../components/DetailsCar/DetailsCar';
-import { allCars, everythingCar, filterCar } from '../../redux/selector';
+import {
+  allCars,
+  detailsCars,
+  everythingCar,
+  filterCar,
+} from '../../redux/selector';
 import { Filter } from '../../components/Filter/Filter';
 import { useFilterCar } from '../../helpers/hooks/useFilterCar';
 import { useModal } from '../../helpers/hooks/useModal';
@@ -21,28 +26,24 @@ const Catalog = () => {
   const carFilter = useSelector(filterCar);
   const [page, setPage] = useState(1);
   const isLoading = useSelector(state => state.cars.isLoading);
-  const filter = useFilterCar(allCars);
+  const filter = useFilterCar(detailsCars);
   const { modalOpen, openModal, closeModal } = useModal();
 
+  const render = useMemo(
+    () => (carFilter.length !== 0 ? filter : cars),
+    [carFilter, filter, cars]
+  );
+
+  const handelClick = useCallback(() => {
+    setPage(prevPage => prevPage + 1);
+  }, []);
+
   useEffect(() => {
-    if (cars.length === 0) {
+    if (cars.length === 0 || page >= 2) {
       dispatch(getCarsRental(page));
       dispatch(getCarsEverything());
     }
   }, [cars, dispatch, page]);
-
-  const handelClick = () => {
-    setPage(prevPage => {
-      const newPage = prevPage + 1;
-      return newPage;
-    });
-  };
-
-  useEffect(() => {
-    if (page >= 2) {
-      dispatch(getCarsRental(page));
-    }
-  }, [page, dispatch]);
 
   const onClickModal = useCallback(
     id => {
@@ -58,9 +59,9 @@ const Catalog = () => {
       {filter.length === 0 && !isLoading && (
         <CarNotFound>Oops car not found 🫥</CarNotFound>
       )}
-      {filter.length !== 0 && (
+      {cars.length !== 0 && (
         <>
-          <CatalogList openModal={onClickModal} cars={filter} />
+          <CatalogList openModal={onClickModal} cars={render} />
           {cars.length !== 0 &&
             number !== cars.length &&
             carFilter.length === 0 && (

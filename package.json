@@ -2,7 +2,7 @@
   "name": "car-rental",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://JuliaTarasenko00.github.io/car-rental/",
+  "homepage": "https://JuliaTarasenko00.github.io/car-rental",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
