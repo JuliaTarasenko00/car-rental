@@ -1,14 +1,15 @@
-import { useNavigate } from 'react-router-dom';
-import { Button, Div } from './Home.styled';
+import { Div, Title } from './Home.styled';
 
 const Home = () => {
-  const navigate = useNavigate();
   return (
-    <Div>
-      <Button type="button" onClick={() => navigate('/catalog')}>
-        Go Catalog
-      </Button>
-    </Div>
+    <>
+      <Div>
+        <Title>
+          In our application, you can rent a car by calling us. You can also
+          choose your favorite cars by sorting them by brand or price per hour.
+        </Title>
+      </Div>
+    </>
   );
 };
 

@@ -28,7 +28,7 @@ const Favorite = () => {
 
   return (
     <>
-      <Filter />
+      <Filter filter={filter} />
       {favorite.length === 0 && (
         <Wrapper>
           <Title>The list of favorite cars is still empty</Title>

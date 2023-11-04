@@ -10,19 +10,11 @@ export const Div = styled.div`
   background-size: contain;
 `;
 
-export const Button = styled.button`
+export const Title = styled.p`
   position: absolute;
-  top: 30vh;
-  left: 50px;
-  cursor: pointer;
-
-  position: absolute;
-  top: 30vh;
-  left: 50px;
-  border: none;
+  top: 20vh;
   max-width: 200px;
-  padding: 20px;
-  border-radius: 50px;
-  color: #fff;
-  background-color: #3470ff;
+  left: 50px;
+  text-align: justify;
+  font-size: 23px;
 `;
