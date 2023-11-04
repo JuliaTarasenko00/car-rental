@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/catalog" element={<Catalog />} />
-            <Route path="/favorite" element={<Favorite />} />
+            <Route path="catalog" element={<Catalog />} />
+            <Route path="favorite" element={<Favorite />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
