@@ -15,10 +15,12 @@ import { styleToastify } from '../toastify';
 import { getCarsRental } from '../../redux/cars/operation';
 import { FilterName } from '../FilterName/FilterName';
 import { FilterPrice } from '../FilterPrice/FilterPrice';
+import { useLocation } from 'react-router-dom';
 
 export const Filter = ({ filter }) => {
   const dispatch = useDispatch();
   const carFilter = useSelector(filterCar);
+  const { pathname } = useLocation();
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -27,11 +29,11 @@ export const Filter = ({ filter }) => {
   const handelSubmit = ev => {
     ev.preventDefault();
 
-    if (name === null && price === null) {
+    if (!name && !price) {
       return toast.warning('Select auto', styleToastify);
     }
 
-    if (carFilter.name !== name || carFilter.price !== price) {
+    if (carFilter?.name !== name || carFilter?.price !== price) {
       return dispatch(filterSliceCar({ name, price }));
     } else {
       return toast.warning(
@@ -42,8 +44,10 @@ export const Filter = ({ filter }) => {
   };
 
   const clearForm = () => {
-    dispatch(filterSliceCar([]));
-    dispatch(getCarsRental());
+    if (pathname !== '/favorite') {
+      dispatch(getCarsRental());
+    }
+    dispatch(filterSliceCar(null));
     setName('');
     setPrice('');
     setClick(false);
@@ -60,7 +64,7 @@ export const Filter = ({ filter }) => {
           <Button type="submit" onClick={() => setClick(true)}>
             Search
           </Button>
-          {carFilter.length !== 0 && (
+          {carFilter && (
             <ButtonBack type="button" onClick={clearForm}>
               Clear
             </ButtonBack>

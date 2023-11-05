@@ -12,13 +12,13 @@ export const useFilterCar = selector => {
     const newFilter = cars.filter(car => {
       let isMatch = true;
 
-      if (carFilter.price) {
+      if (carFilter?.price) {
         let s = car.rentalPrice;
         s = s.replace('$', '');
         isMatch = isMatch && Number(s) >= Number(carFilter.price);
       }
 
-      if (carFilter.name) {
+      if (carFilter?.name) {
         isMatch = isMatch && car.make.includes(carFilter.name);
       }
 

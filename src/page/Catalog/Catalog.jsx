@@ -30,19 +30,19 @@ const Catalog = () => {
   const filter = useFilterCar(detailsCars);
 
   const render = useMemo(
-    () => (carFilter.length !== 0 ? filter : cars),
+    () => (carFilter ? filter : cars),
     [carFilter, filter, cars]
   );
 
   useEffect(() => {
     if (cars.length === 0) {
       dispatch(getCarsRental(page));
+      dispatch(getCarsEverything());
     }
   }, [cars, dispatch, page]);
 
   const handelClick = () => {
     setPage(page + 1);
-    dispatch(getCarsEverything());
   };
 
   useEffect(() => {
@@ -65,13 +65,11 @@ const Catalog = () => {
       {cars.length !== 0 && (
         <>
           <CatalogList openModal={onClickModal} cars={render} />
-          {cars.length !== 0 &&
-            number !== cars.length &&
-            carFilter.length === 0 && (
-              <Button type="button" onClick={() => handelClick()}>
-                Load More
-              </Button>
-            )}
+          {cars.length !== 0 && number !== cars.length && !carFilter && (
+            <Button type="button" onClick={() => handelClick()}>
+              Load More
+            </Button>
+          )}
           {modalOpen && (
             <ModalComponent onClose={closeModal}>
               <DetailsCar />
