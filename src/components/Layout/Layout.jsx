@@ -15,11 +15,12 @@ import {
 import { IoCarSport } from 'react-icons/io5';
 import Loader from '../Loader';
 import { tokens } from 'i18n/tokens';
-import i18next from 'i18next';
 import { LOCALS } from 'i18n/constants';
+import { changeLanguage } from 'i18n';
 
 const Layout = () => {
   const { t } = useTranslation();
+  const language = localStorage.getItem('i18nextLng');
 
   return (
     <>
@@ -45,13 +46,13 @@ const Layout = () => {
             <WrapperTranslate>
               <ButtonUk
                 type="button"
-                $datadisabled={(i18next.language === LOCALS.UK).toString()}
-                onClick={() => i18next.changeLanguage(LOCALS.UK)}
+                $datadisabled={(language === LOCALS.UK).toString()}
+                onClick={() => changeLanguage(LOCALS.UK)}
               ></ButtonUk>
               <ButtonEn
                 type="button"
-                $datadisabled={(i18next.language === LOCALS.EN).toString()}
-                onClick={() => i18next.changeLanguage(LOCALS.EN)}
+                $datadisabled={(language === LOCALS.EN).toString()}
+                onClick={() => changeLanguage(LOCALS.EN)}
               ></ButtonEn>
             </WrapperTranslate>
             <Outlet />
