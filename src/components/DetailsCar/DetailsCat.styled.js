@@ -6,6 +6,8 @@ export const Container = styled.div`
 `;
 
 export const Img = styled.img`
+  object-fit: cover;
+  object-position: center;
   max-height: 230px;
   border-radius: 24px;
 `;
@@ -78,7 +80,8 @@ export const RentalDetails = styled.p`
 
 export const Link = styled.a`
   display: block;
-  max-width: 168px;
+  max-width: ${({ $datadisabled }) =>
+    $datadisabled === 'true' ? '268px' : '168px'};
   max-height: 44px;
   background-color: #3470ff;
   text-decoration: none;

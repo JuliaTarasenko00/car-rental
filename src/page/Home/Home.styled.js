@@ -9,12 +9,3 @@ export const Div = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
 `;
-
-export const Title = styled.p`
-  position: absolute;
-  top: 20vh;
-  max-width: 200px;
-  left: 50px;
-  text-align: justify;
-  font-size: 23px;
-`;

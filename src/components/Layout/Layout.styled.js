@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import uk from '../../img/uk.png';
+import en from '../../img/en.png';
 
 export const Container = styled.section`
   max-width: 1430px;
@@ -46,4 +48,38 @@ export const LinkEmblem = styled(NavLink)`
 export const Wrapper = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+export const WrapperTranslate = styled.div`
+  & button:not(:last-child) {
+    margin-right: 5px;
+  }
+`;
+
+export const ButtonUk = styled.button`
+  cursor: ${({ $datadisabled }) =>
+    $datadisabled === 'true' ? 'not-allowed' : 'pointer'};
+  width: 30px;
+  height: 20px;
+
+  background-image: url(${uk});
+  background-size: contain;
+  background-position: center;
+  border: none;
+  border-radius: 3px;
+`;
+
+export const ButtonEn = styled.button`
+  cursor: ${({ $datadisabled }) =>
+    $datadisabled === 'true' ? 'not-allowed' : 'pointer'};
+  width: 30px;
+  height: 20px;
+
+  background-image: url(${en});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: none;
+  border-radius: 3px;
 `;

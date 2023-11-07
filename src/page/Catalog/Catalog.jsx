@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
   getCarsEverything,
   getCarsRental,
@@ -18,8 +20,11 @@ import {
 import { Filter } from '../../components/Filter/Filter';
 import { useFilterCar } from '../../helpers/hooks/useFilterCar';
 import { useModal } from '../../helpers/hooks/useModal';
+import { tokens } from 'i18n/tokens';
 
 const Catalog = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const cars = useSelector(allCars);
   const number = useSelector(everythingCar);
@@ -67,7 +72,7 @@ const Catalog = () => {
           <CatalogList openModal={onClickModal} cars={render} />
           {cars.length !== 0 && number !== cars.length && !carFilter && (
             <Button type="button" onClick={() => handelClick()}>
-              Load More
+              {t(tokens.nav.loadMore)}
             </Button>
           )}
           {modalOpen && (

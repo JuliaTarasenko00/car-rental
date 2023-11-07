@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
+
 import {
   Button,
   ButtonFavorite,
@@ -14,11 +17,13 @@ import {
   Wrapper,
   WrapperImg,
 } from './CatalagList.styled';
-import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../redux/favorite/slice';
 import { favoriteCar } from '../../redux/selector';
+import { tokens } from 'i18n/tokens';
 
 export const CatalogList = ({ cars, openModal }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const favorite = useSelector(favoriteCar);
 
@@ -87,7 +92,7 @@ export const CatalogList = ({ cars, openModal }) => {
                   {accessory.join('')}
                 </CarDetailed>
                 <Button type="button" onClick={() => openModal(id)}>
-                  Learn more
+                  {t(tokens.nav.learnMore)}
                 </Button>
               </DescriptionWrapper>
             </CarItem>

@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Loader from './components/Loader';
+import './i18n';
 
 const Home = lazy(() => import('./page/Home/Home'));
 const Catalog = lazy(() => import('./page/Catalog/Catalog'));

@@ -32,6 +32,8 @@ export const WrapperImg = styled.div`
 `;
 
 export const Img = styled.img`
+  object-fit: cover;
+  object-position: center;
   position: relative;
   height: 268px;
   border-radius: 14px;

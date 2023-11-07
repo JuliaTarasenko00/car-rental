@@ -1,10 +1,21 @@
-@import-normalize; /* bring in normalize.css styles */
-
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #3470ff1c;
+  margin: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #3470ff;
 }
 
 code {
@@ -39,4 +50,8 @@ img {
 ::-webkit-scrollbar-thumb {
   background-color: #1214170d;
   border-radius: 35px;
+}
+
+::-webkit-scrollbar-track {
+  margin: 15px;
 }

@@ -1,18 +1,22 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import IconButton from '@mui/joy/IconButton';
+
 import select from '../../helpers/select.json';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Div, Label } from '../Filter/Filter.styled';
 import { Wrapper } from './FilterName.styled';
+import { tokens } from 'i18n/tokens';
 
 export const FilterName = ({ name, setName }) => {
   const action = useRef(null);
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
-      <Label htmlFor="select">Car brand</Label>
+      <Label htmlFor="select">{t(tokens.filter.carBrand)}</Label>
       <Select
         action={action}
         value={name}

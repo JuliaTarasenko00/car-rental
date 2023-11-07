@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { toast } from 'react-toastify';
 import {
   Button,
@@ -15,29 +18,31 @@ import { styleToastify } from '../toastify';
 import { getCarsRental } from '../../redux/cars/operation';
 import { FilterName } from '../FilterName/FilterName';
 import { FilterPrice } from '../FilterPrice/FilterPrice';
-import { useLocation } from 'react-router-dom';
+import { tokens } from 'i18n/tokens';
 
 export const Filter = ({ filter }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const carFilter = useSelector(filterCar);
   const { pathname } = useLocation();
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [click, setClick] = useState(false);
+
+  const empty = !name && !price;
 
   const handelSubmit = ev => {
     ev.preventDefault();
 
-    if (!name && !price) {
-      return toast.warning('Select auto', styleToastify);
+    if (empty) {
+      return toast.warning(`${t(tokens.filter.selectAuto)}`, styleToastify);
     }
 
     if (carFilter?.name !== name || carFilter?.price !== price) {
       return dispatch(filterSliceCar({ name, price }));
     } else {
       return toast.warning(
-        'You are already looking at this machine, choose another one or go to the catalog',
+        `${t(tokens.filter.lookingThisMachine)}`,
         styleToastify
       );
     }
@@ -50,7 +55,6 @@ export const Filter = ({ filter }) => {
     dispatch(filterSliceCar(null));
     setName('');
     setPrice('');
-    setClick(false);
   };
 
   return (
@@ -61,18 +65,16 @@ export const Filter = ({ filter }) => {
           <FilterPrice price={price} setPrice={setPrice} />
         </Wrapper>
         <div>
-          <Button type="submit" onClick={() => setClick(true)}>
-            Search
-          </Button>
+          <Button type="submit">{t(tokens.filter.search)}</Button>
           {carFilter && (
             <ButtonBack type="button" onClick={clearForm}>
-              Clear
+              {t(tokens.filter.clear)}
             </ButtonBack>
           )}
         </div>
       </Form>
-      {filter.length === 0 && click && (
-        <CarNotFound>Oops car not found 🫥</CarNotFound>
+      {filter.length === 0 && !empty && (
+        <CarNotFound>{t(tokens.filter.notFound)} 🫥</CarNotFound>
       )}
     </Section>
   );

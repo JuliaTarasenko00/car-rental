@@ -1,4 +1,7 @@
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+
 import { detailsCar } from '../../redux/selector';
 import {
   Accessories,
@@ -16,9 +19,12 @@ import {
   WrapperDetails,
   WrapperRental,
 } from './DetailsCat.styled';
+import { tokens } from 'i18n/tokens';
+import { LOCALS } from 'i18n/constants';
 
 export const DetailsCar = () => {
   const details = useSelector(detailsCar);
+  const { t } = useTranslation();
 
   const addressArray = details?.address.split(' ');
   let str = addressArray?.splice(3, 2).join(' | ');
@@ -44,16 +50,26 @@ export const DetailsCar = () => {
       </TitleNameCar>
       <WrapperDetails>
         <Title>{str} |</Title>
-        <Title>Id: {details?.id} |</Title>
-        <Title>Year: {details?.year} |</Title>
-        <Title>Type: {details?.type}</Title>
+        <Title>
+          {t(tokens.detailsCar.id)}: {details?.id} |
+        </Title>
+        <Title>
+          {t(tokens.detailsCar.year)}: {details?.year} |
+        </Title>
+        <Title>
+          {t(tokens.detailsCar.type)}: {details?.type}
+        </Title>
       </WrapperDetails>
       <WrapperDetails>
-        <Title>Fuel Consumption: {details?.fuelConsumption} | </Title>
-        <Title>Engine Size: {details?.engineSize}</Title>
+        <Title>
+          {t(tokens.detailsCar.fuelConsumption)}: {details?.fuelConsumption} |{' '}
+        </Title>
+        <Title>
+          {t(tokens.detailsCar.engineSize)}: {details?.engineSize}
+        </Title>
       </WrapperDetails>
       <Description>{details?.description}</Description>
-      <Accessories>Accessories and functionalities</Accessories>
+      <Accessories>{t(tokens.detailsCar.accessories)}</Accessories>
       <AccessoriesList>
         <li>
           <AccessoriesTitle>
@@ -66,7 +82,7 @@ export const DetailsCar = () => {
           </AccessoriesTitle>
         </li>
       </AccessoriesList>
-      <TitleRental>Rental Conditions</TitleRental>
+      <TitleRental>{t(tokens.detailsCar.conditions)}</TitleRental>
       <WrapperRental>
         <li>
           <RentalDetails>
@@ -81,17 +97,22 @@ export const DetailsCar = () => {
         </li>
         <li>
           <RentalDetails>
-            Mileage: <Span>{mileage}</Span>
+            {t(tokens.detailsCar.mileage)}: <Span>{mileage}</Span>
           </RentalDetails>
         </li>
         <li>
           <RentalDetails>
-            Price: <Span>{details?.rentalPrice}</Span>
+            {t(tokens.detailsCar.price)}: <Span>{details?.rentalPrice}</Span>
           </RentalDetails>
         </li>
       </WrapperRental>
-      <Link href="tel:+380730000000" className="rental-car-button">
-        Rental Car
+
+      <Link
+        href="tel:+380730000000"
+        className="rental-car-button"
+        $datadisabled={(i18next.language === LOCALS.UK).toString()}
+      >
+        {t(tokens.nav.rental)}
       </Link>
     </Container>
   );

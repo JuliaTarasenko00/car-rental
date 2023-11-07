@@ -19,12 +19,18 @@ export const Modal = styled.div`
   border-radius: 24px;
   background-color: #fff;
   max-width: 541px;
+  max-height: 550px;
+  overflow: scroll;
 
   padding: 40px;
 
   box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
   display: flex;
   justify-content: center;
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
 `;
 
 export const ButtonClose = styled.button`
