@@ -6,10 +6,16 @@ export const CartList = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 100px;
+  justify-content: center;
 `;
 
 export const CarItem = styled.li`
   max-width: 274px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.03) translateZ(10px);
+  }
 `;
 
 export const WrapperImg = styled.div`
@@ -49,6 +55,7 @@ export const ButtonFavorite = styled.button`
   right: 14px;
   color: #fff;
   z-index: 30;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     color: #3470ff;
@@ -89,16 +96,20 @@ export const CarDetailed = styled.p`
 
 export const Button = styled.button`
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
   background-color: #3470ff;
   border: none;
   border-radius: 12px;
-  padding: 12px 99px;
-  max-width: 274px;
+  padding: 12px 0;
+  width: 274px;
+  max-width: 100%;
   text-align: center;
 
   color: #fff;
   font-size: 14px;
   line-height: 1.42;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   :focus {

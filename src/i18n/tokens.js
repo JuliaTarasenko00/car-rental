@@ -39,4 +39,21 @@ export const tokens = {
     carBrand: 'filter.carBrand',
     priceHour: 'filter.priceHour',
   },
+
+  car: {
+    id: 'car.id',
+    year: 'car.year',
+    make: 'car.make',
+    model: 'car.model',
+    type: 'car.type',
+    description: 'car.description',
+    fuelConsumption: 'car.fuelConsumption',
+    engineSize: 'car.engineSize',
+    accessories: 'car.accessories',
+    functionalities: 'car.functionalities',
+    rentalPrice: 'car.rentalPrice',
+    rentalCompany: 'car.rentalCompany',
+    address: 'car.address',
+    rentalConditions: 'car.rentalConditions',
+  },
 };

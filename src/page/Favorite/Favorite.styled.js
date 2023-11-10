@@ -14,6 +14,7 @@ export const Title = styled.p`
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 10px;
+  text-align: center;
 `;
 
 export const Button = styled.button`

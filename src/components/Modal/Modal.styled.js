@@ -31,6 +31,11 @@ export const Modal = styled.div`
   &::-webkit-scrollbar-corner {
     background-color: transparent;
   }
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    max-width: 300px;
+    padding: 20px;
+  }
 `;
 
 export const ButtonClose = styled.button`
@@ -46,5 +51,11 @@ export const ButtonClose = styled.button`
   &:hover,
   :focus {
     color: #3e85f3;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    font-size: 20px;
+    top: 15px;
+    right: 0;
   }
 `;

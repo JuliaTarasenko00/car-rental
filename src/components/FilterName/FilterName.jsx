@@ -22,6 +22,7 @@ export const FilterName = ({ name, setName }) => {
         value={name}
         name="car"
         placeholder="Enter the text"
+        className='filter_name'
         onChange={(e, newValue) => setName(newValue)}
         {...(name && {
           endDecorator: (

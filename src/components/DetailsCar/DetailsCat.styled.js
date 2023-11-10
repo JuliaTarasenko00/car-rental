@@ -34,6 +34,10 @@ export const Title = styled.p`
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   line-height: 1.5;
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    font-size: 10px;
+  }
 `;
 
 export const Description = styled.p`
@@ -42,6 +46,10 @@ export const Description = styled.p`
   line-height: 1.42;
   margin-top: 14px;
   margin-bottom: 18px;
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    font-size: 12px;
+  }
 `;
 
 export const Accessories = styled.h4`
@@ -49,6 +57,10 @@ export const Accessories = styled.h4`
   font-size: 14px;
   line-height: 1.42;
   font-weight: 500;
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    font-size: 12px;
+  }
 `;
 
 export const AccessoriesList = styled.ul``;
@@ -58,6 +70,10 @@ export const AccessoriesTitle = styled.p`
   font-size: 12px;
   line-height: 1.5;
   margin-bottom: 8px;
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    font-size: 10px;
+  }
 `;
 
 export const TitleRental = styled.h4`
@@ -76,6 +92,10 @@ export const RentalDetails = styled.p`
   color: #363535;
   font-size: 15px;
   line-height: 1.5;
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    font-size: 12px;
+  }
 `;
 
 export const Link = styled.a`
@@ -90,6 +110,7 @@ export const Link = styled.a`
   margin-top: 24px;
   padding: 12px;
   text-align: center;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   :focus {

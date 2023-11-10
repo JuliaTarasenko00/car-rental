@@ -33,4 +33,20 @@ export const uk = {
   [tokens.filter.selectAuto]: 'Виберіть авто',
   [tokens.filter.carBrand]: 'Марка автомобіля',
   [tokens.filter.priceHour]: 'Вартість за 1 год',
+
+  // --------CAR
+  [tokens.car.id]: 'Номер',
+  [tokens.car.year]: 'Рік',
+  [tokens.car.make]: 'Марка',
+  [tokens.car.model]: 'Модедь',
+  [tokens.car.type]: 'Тип',
+  [tokens.car.description]: 'Опис',
+  [tokens.car.fuelConsumption]: 'Витрата палива',
+  [tokens.car.engineSize]: 'Розмір двигуна',
+  [tokens.car.accessories]: 'Аксесуари',
+  [tokens.car.functionalities]: 'Функціональні можливості',
+  [tokens.car.rentalPrice]: 'Вартість оренди',
+  [tokens.car.rentalCompany]: 'Орендна компанія',
+  [tokens.car.address]: 'Адреса',
+  [tokens.car.rentalConditions]: 'Умови оренди',
 };

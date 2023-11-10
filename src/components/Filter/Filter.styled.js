@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Section = styled.div`
   max-width: 859px;
   margin: 0 auto;
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    margin-top: 15px;
+  }
 `;
 
 export const Form = styled.form`
@@ -10,6 +13,13 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    .filter_name {
+      max-width: 100px;
+    }
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const Label = styled.label`
@@ -32,6 +42,7 @@ export const Button = styled.button`
   padding: 14px 44px;
   max-width: 136px;
   color: #fff;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   :focus {
@@ -42,6 +53,13 @@ export const Button = styled.button`
 export const Wrapper = styled.div`
   display: flex;
   gap: 18px;
+
+  @media screen and (min-width: 320px) and (max-width: 728px) {
+    .filter_name {
+      max-width: 100px;
+    }
+    flex-direction: column;
+  }
 `;
 
 export const ButtonBack = styled.button`
