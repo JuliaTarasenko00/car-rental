@@ -15,7 +15,7 @@ import {
 import { filterSliceCar } from '../../redux/filret/slice';
 import { filterCar } from '../../redux/selector';
 import { styleToastify } from '../toastify';
-import { getCarsRental } from '../../redux/cars/operation';
+import { getCarsFilter, getCarsRental } from '../../redux/cars/operation';
 import { FilterName } from '../FilterName/FilterName';
 import { FilterPrice } from '../FilterPrice/FilterPrice';
 import { tokens } from 'i18n/tokens';
@@ -25,11 +25,16 @@ export const Filter = ({ filter }) => {
   const dispatch = useDispatch();
   const carFilter = useSelector(filterCar);
   const { pathname } = useLocation();
+  const isLoading = useSelector(state => state.cars.isLoading);
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [click, setClick] = useState(false);
 
   const empty = !name && !price;
+
+  const emptyTitleNotFound =
+    click && filter.length === 0 && !empty && !isLoading;
 
   const handelSubmit = ev => {
     ev.preventDefault();
@@ -55,6 +60,7 @@ export const Filter = ({ filter }) => {
     dispatch(filterSliceCar(null));
     setName('');
     setPrice('');
+    setClick(false);
   };
 
   return (
@@ -65,7 +71,15 @@ export const Filter = ({ filter }) => {
           <FilterPrice price={price} setPrice={setPrice} />
         </Wrapper>
         <div>
-          <Button type="submit">{t(tokens.filter.search)}</Button>
+          <Button
+            type="submit"
+            onClick={() => {
+              setClick(true);
+              dispatch(getCarsFilter());
+            }}
+          >
+            {t(tokens.filter.search)}
+          </Button>
           {carFilter && (
             <ButtonBack type="button" onClick={clearForm}>
               {t(tokens.filter.clear)}
@@ -73,7 +87,7 @@ export const Filter = ({ filter }) => {
           )}
         </div>
       </Form>
-      {filter.length === 0 && !empty && (
+      {emptyTitleNotFound && (
         <CarNotFound>{t(tokens.filter.notFound)} 🫥</CarNotFound>
       )}
     </Section>

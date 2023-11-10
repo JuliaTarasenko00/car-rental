@@ -21,8 +21,8 @@ export const FilterName = ({ name, setName }) => {
         action={action}
         value={name}
         name="car"
-        placeholder="Enter the text"
-        className='filter_name'
+        placeholder={t(tokens.filter.enterText)}
+        className="filter_name"
         onChange={(e, newValue) => setName(newValue)}
         {...(name && {
           endDecorator: (

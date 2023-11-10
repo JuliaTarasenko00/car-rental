@@ -33,20 +33,6 @@ export const en = {
   [tokens.filter.selectAuto]: 'Select auto',
   [tokens.filter.carBrand]: 'Car brand',
   [tokens.filter.priceHour]: 'Price/ 1 hour',
-
-  // --------CAR
-  [tokens.car.id]: 'Id',
-  [tokens.car.year]: 'Year',
-  [tokens.car.make]: 'Make',
-  [tokens.car.model]: 'Model',
-  [tokens.car.type]: 'Type',
-  [tokens.car.description]: 'Description',
-  [tokens.car.fuelConsumption]: 'Fuel Consumption',
-  [tokens.car.engineSize]: 'Engine Size',
-  [tokens.car.accessories]: 'Accessories',
-  [tokens.car.functionalities]: 'Functionalities',
-  [tokens.car.rentalPrice]: 'Rental Price',
-  [tokens.car.rentalCompany]: 'Rental Company',
-  [tokens.car.address]: 'Address',
-  [tokens.car.rentalConditions]: 'Rental Conditions',
+  [tokens.filter.enterText]: 'Select a make',
+  [tokens.filter.from]: 'From',
 };

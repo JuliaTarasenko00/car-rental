@@ -38,6 +38,8 @@ export const tokens = {
     lookingThisMachine: 'filter.lookingThisMachine',
     carBrand: 'filter.carBrand',
     priceHour: 'filter.priceHour',
+    enterText: 'filter.enterText',
+    from: 'filter.from',
   },
 
   car: {

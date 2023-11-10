@@ -1,5 +1,10 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getCarsEverything, getCarsRental, getDetailsCar } from './operation';
+import {
+  getAllCar,
+  getCarsFilter,
+  getCarsRental,
+  getDetailsCar,
+} from './operation';
 
 const initialState = {
   isLoading: false,
@@ -23,9 +28,13 @@ export const carsSlice = createSlice({
         state.cars = [...state.cars, ...newCars];
         state.error = null;
       })
-      .addCase(getCarsEverything.fulfilled, (state, { payload }) => {
+      .addCase(getAllCar.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.number = payload.length;
+        state.error = null;
+      })
+      .addCase(getCarsFilter.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         state.allCar = payload;
         state.error = null;
       })
@@ -36,8 +45,9 @@ export const carsSlice = createSlice({
       })
       .addMatcher(
         isAnyOf(
+          getAllCar.pending,
           getCarsRental.pending,
-          getCarsEverything.pending,
+          getCarsFilter.pending,
           getDetailsCar.pending
         ),
         (state, _) => {
@@ -49,8 +59,9 @@ export const carsSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getCarsRental.rejected,
-          getCarsEverything.rejected,
-          getDetailsCar.rejected
+          getCarsFilter.rejected,
+          getDetailsCar.rejected,
+          getAllCar.rejected
         ),
         (state, { payload }) => {
           state.isLoading = false;

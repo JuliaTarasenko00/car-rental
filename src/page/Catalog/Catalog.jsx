@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-  getCarsEverything,
+  getAllCar,
   getCarsRental,
   getDetailsCar,
 } from '../../redux/cars/operation';
@@ -29,6 +29,7 @@ const Catalog = () => {
   const cars = useSelector(allCars);
   const number = useSelector(everythingCar);
   const carFilter = useSelector(filterCar);
+
   const [page, setPage] = useState(1);
   const { modalOpen, openModal, closeModal } = useModal();
 
@@ -42,7 +43,7 @@ const Catalog = () => {
   useEffect(() => {
     if (cars.length === 0) {
       dispatch(getCarsRental(page));
-      dispatch(getCarsEverything());
+      dispatch(getAllCar());
     }
   }, [cars, dispatch, page]);
 
@@ -75,12 +76,12 @@ const Catalog = () => {
               {t(tokens.nav.loadMore)}
             </Button>
           )}
-          {modalOpen && (
-            <ModalComponent onClose={closeModal}>
-              <DetailsCar />
-            </ModalComponent>
-          )}
         </>
+      )}
+      {modalOpen && (
+        <ModalComponent onClose={closeModal}>
+          <DetailsCar />
+        </ModalComponent>
       )}
     </>
   );

@@ -23,8 +23,24 @@ export const getCarsRental = createAsyncThunk(
   }
 );
 
-export const getCarsEverything = createAsyncThunk(
+export const getAllCar = createAsyncThunk(
   'cars/number',
+  async (_, thunkApi) => {
+    try {
+      const { data } = await $instants.get('cars');
+      return data;
+    } catch (error) {
+      const { status } = error.response;
+      if (status === 500) {
+        toast.error('Server error.', styleToastify);
+      }
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getCarsFilter = createAsyncThunk(
+  'cars/filter',
   async (_, thunkApi) => {
     try {
       const { data } = await $instants.get('cars');

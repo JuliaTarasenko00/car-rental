@@ -20,7 +20,6 @@ import {
 import { addFavorite, deleteFavorite } from '../../redux/favorite/slice';
 import { favoriteCar } from '../../redux/selector';
 import { tokens } from 'i18n/tokens';
-import imgNotFound from '../../img/image-not-found.jpg';
 
 export const CatalogList = ({ cars, openModal }) => {
   const { t } = useTranslation();
@@ -60,12 +59,11 @@ export const CatalogList = ({ cars, openModal }) => {
           str = str.replace(/,/g, '');
           const accessoriesCopy = [...accessories];
           const accessory = accessoriesCopy?.splice(0, 1);
-          const image = img ?? imgNotFound;
           return (
             <CarItem key={id}>
               <WrapperImg>
                 <Img
-                  src={image}
+                  src={img}
                   alt={make}
                   loading="lazy"
                   width="274"

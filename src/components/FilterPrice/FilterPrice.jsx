@@ -20,7 +20,7 @@ export const FilterPrice = ({ price, setPrice }) => {
         action={action}
         value={price}
         name="price"
-        placeholder="To $"
+        placeholder={`${t(tokens.filter.from)} $`}
         onChange={(e, newValue) => setPrice(newValue)}
         {...(price && {
           endDecorator: (
