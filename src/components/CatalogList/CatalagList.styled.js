@@ -89,7 +89,7 @@ export const CarPrise = styled.p`
 
 export const CarDetailed = styled.p`
   color: rgba(18, 20, 23, 0.5);
-  font-size: 11.5px;
+  font-size: 10px;
   line-height: 1.5;
   margin-bottom: 28px;
 `;
